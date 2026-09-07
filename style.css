@@ -1,0 +1,86 @@
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#03060d;--cyan:#00eaff;--pink:#ff208e;--purple:#914cff;--muted:#8992a8}
+html,body{min-height:100%;background:#03060d;color:#fff;font-family:Arial,Helvetica,sans-serif}
+body{overflow:hidden}
+.app{width:100%;min-height:100vh;max-width:520px;margin:auto;position:relative;background:#03060d}
+.screen{min-height:100vh;width:100%;position:absolute;inset:0;overflow:hidden}
+.opening{display:block;background:
+radial-gradient(circle at 50% 30%,rgba(0,170,210,.08),transparent 24%),
+radial-gradient(circle at 50% 55%,rgba(170,0,130,.06),transparent 25%),
+linear-gradient(180deg,#050914,#02050b)}
+.languages{position:absolute;top:30px;left:0;right:0;display:flex;justify-content:center;gap:9px;z-index:2}
+.languages span{padding:9px 13px;border:1px solid rgba(140,170,220,.25);border-radius:30px;font-weight:800;font-size:11px;letter-spacing:1px;background:rgba(8,13,25,.5);box-shadow:0 8px 25px rgba(0,0,0,.3)}
+.hero{position:absolute;top:135px;left:0;right:0;text-align:center}
+.code-icon{width:82px;height:82px;margin:0 auto 25px;border-radius:25px;display:grid;place-items:center;font-size:27px;font-weight:900;background:#08101d;border:1px solid rgba(255,255,255,.09);box-shadow:0 0 30px rgba(0,234,255,.12),inset 0 1px rgba(255,255,255,.1)}
+.hero h1{font-size:43px;letter-spacing:-2px;line-height:1}
+.hero h1 b,.main-content h1 b{font-weight:900;background:linear-gradient(90deg,#ff315c,#ffe75a,#27ff9a,#00eaff,#9a4dff,#ff2aa0,#ff315c);background-size:500% auto;color:transparent;background-clip:text;-webkit-background-clip:text;animation:rgbText 7s linear infinite}
+.hero p{margin-top:17px;font-size:11px;letter-spacing:3px;color:#a0a9bd}
+.access-card{position:absolute;left:17px;right:17px;bottom:55px;padding:27px 19px 22px;border-radius:26px;background:rgba(7,12,22,.86);border:1px solid rgba(255,255,255,.09);box-shadow:0 25px 70px rgba(0,0,0,.6),inset 0 1px rgba(255,255,255,.05)}
+.access-icon{width:44px;height:44px;margin:-1px auto 13px;border-radius:14px;display:grid;place-items:center;border:1px solid rgba(0,234,255,.4);box-shadow:0 0 22px rgba(0,234,255,.15);font-size:21px}
+.access-card small{display:block;text-align:center;color:var(--cyan);font-size:10px;letter-spacing:4px;font-weight:900}
+.access-card h2{text-align:center;font-size:27px;margin-top:8px}
+.access-card>p{text-align:center;color:#8f98ac;margin:8px 0 23px;font-size:13px}
+.input-light{position:relative;border-radius:17px;padding:1px;overflow:hidden}
+.input-light:before{content:"";position:absolute;inset:-70%;background:conic-gradient(from 0deg,transparent 0 18%,#00eaff 24%,#9a4dff 31%,transparent 39% 57%,#ff208e 64%,#ffe54a 71%,transparent 79%);animation:orbit 3.2s linear infinite}
+.input-light:after{content:"";position:absolute;inset:1px;background:#050a12;border-radius:16px}
+input{position:relative;z-index:2;width:100%;height:57px;background:transparent;border:1px solid rgba(100,125,170,.3);border-radius:16px;color:#fff;outline:none;text-align:center;font-size:15px;font-weight:800;letter-spacing:4px}
+input::placeholder{color:#4c566d;letter-spacing:2px;font-size:11px}
+input:focus{box-shadow:0 0 24px rgba(0,234,255,.13)}
+button{position:relative;width:100%;height:59px;margin-top:14px;border-radius:16px;border:1px solid rgba(100,160,220,.4);background:linear-gradient(135deg,#101a2a,#0a101c);color:#fff;font-weight:900;letter-spacing:3px;font-size:13px;box-shadow:0 14px 30px rgba(0,0,0,.5),inset 0 1px rgba(255,255,255,.1);overflow:hidden;cursor:pointer;transition:.2s}
+button:active{transform:scale(.965)}
+button:before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent,rgba(0,234,255,.13),transparent);transform:translateX(-100%);animation:buttonShine 3.2s infinite}
+button i{position:absolute;right:20px;font-size:22px;font-style:normal;top:16px}
+#status{height:18px;text-align:center;font-size:11px;font-weight:900;margin-top:10px}
+.ok{color:#2dffa0;text-shadow:0 0 15px rgba(45,255,160,.6)}
+.bad{color:#ff507d}
+.shake{animation:shake .45s}
+.correct{border-color:#2dffa0;box-shadow:0 0 35px rgba(45,255,160,.25),0 14px 30px rgba(0,0,0,.5)}
+
+.main-site{opacity:0;pointer-events:none;background:
+radial-gradient(circle at 50% 35%,rgba(0,234,255,.12),transparent 28%),
+linear-gradient(180deg,#050914,#02050b)}
+.main-site.visible{opacity:1;pointer-events:auto}
+.main-content{text-align:center;padding:170px 25px}
+.main-content .code-icon{margin-bottom:25px}
+.main-content h1{font-size:31px;line-height:1.15}
+.main-content p{margin-top:13px;color:#8992a8}
+.welcome-box{margin:35px auto 0;padding:20px;border-radius:18px;border:1px solid rgba(0,234,255,.25);background:rgba(10,17,29,.7);display:flex;flex-direction:column;gap:8px}
+.welcome-box span{font-size:11px;color:#8f98ac}
+
+/* Crack transition: it happens ONLY after the correct code, and only once. */
+.transition{position:fixed;inset:0;z-index:99;display:none;pointer-events:none;background:#03060d}
+.transition.active{display:block}
+.split-panel{position:absolute;top:0;height:100%;width:51%;background:linear-gradient(180deg,#050914,#02050b);z-index:2}
+.left-panel{left:0;transform-origin:right center}
+.right-panel{right:0;transform-origin:left center}
+.crack-line{position:absolute;z-index:5;left:50%;top:-3%;height:106%;width:5px;transform:translateX(-50%);background:linear-gradient(180deg,transparent 0%,#fff 10%,#8ef7ff 30%,#fff 52%,#00eaff 75%,transparent 100%);filter:drop-shadow(0 0 8px #fff) drop-shadow(0 0 18px #00eaff);opacity:0}
+.crack-glow{position:absolute;z-index:4;left:50%;top:50%;width:25px;height:110%;transform:translate(-50%,-50%);background:#00eaff;filter:blur(22px);opacity:0}
+.crack-edge{position:absolute;z-index:6;top:0;height:100%;width:18px;background:linear-gradient(180deg,transparent,#fff 15%,#00eaff 42%,#fff 65%,transparent);filter:blur(3px);opacity:0}
+.left-edge{right:calc(50% + 2px)}.right-edge{left:calc(50% + 2px)}
+.transition-word{position:absolute;z-index:8;left:50%;top:50%;transform:translate(-50%,-50%) scale(.8);font-size:17px;letter-spacing:5px;font-weight:900;opacity:0;text-shadow:0 0 25px #00eaff}
+
+/* Average, cinematic timing: crack .7s, opening .9s, inside .55s, close .9s. */
+.transition.active .crack-line{animation:crack .65s ease forwards}
+.transition.active .crack-glow{animation:glow .7s ease forwards}
+.transition.active .left-edge{animation:edge .65s ease forwards}
+.transition.active .right-edge{animation:edge .65s ease forwards}
+.transition.active .left-panel{animation:openLeft .9s cubic-bezier(.72,0,.16,1) .45s forwards}
+.transition.active .right-panel{animation:openRight .9s cubic-bezier(.72,0,.16,1) .45s forwards}
+.transition.active .transition-word{animation:word .8s ease 1.05s forwards}
+.transition.closing .left-panel{animation:closeLeft .9s cubic-bezier(.16,.85,.28,1) forwards}
+.transition.closing .right-panel{animation:closeRight .9s cubic-bezier(.16,.85,.28,1) forwards}
+.transition.closing .transition-word{animation:wordOut .35s ease forwards}
+@keyframes rgbText{0%{background-position:0% 50%}100%{background-position:500% 50%}}
+@keyframes orbit{to{transform:rotate(360deg)}}
+@keyframes buttonShine{60%,100%{transform:translateX(120%)}}
+@keyframes shake{20%{transform:translateX(-9px)}40%{transform:translateX(8px)}60%{transform:translateX(-6px)}80%{transform:translateX(4px)}}
+@keyframes crack{0%{opacity:0;transform:translateX(-50%) scaleY(.05)}35%{opacity:1}100%{opacity:1;transform:translateX(-50%) scaleY(1)}}
+@keyframes glow{0%{opacity:0}45%{opacity:.8}100%{opacity:.25}}
+@keyframes edge{0%{opacity:0;transform:scaleY(.1)}40%{opacity:.9}100%{opacity:.65;transform:scaleY(1)}}
+@keyframes openLeft{0%{transform:translateX(0) rotate(0)}100%{transform:translateX(-108%) rotate(-2deg)}}
+@keyframes openRight{0%{transform:translateX(0) rotate(0)}100%{transform:translateX(108%) rotate(2deg)}}
+@keyframes word{0%{opacity:0;transform:translate(-50%,-50%) scale(.8)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes closeLeft{0%{transform:translateX(-108%) rotate(-2deg)}100%{transform:translateX(0) rotate(0)}}
+@keyframes closeRight{0%{transform:translateX(108%) rotate(2deg)}100%{transform:translateX(0) rotate(0)}}
+@keyframes wordOut{to{opacity:0}}
+@media(min-width:600px){body{display:grid;place-items:center;min-height:100vh}.app{height:92vh;min-height:700px;max-height:1000px;border:1px solid rgba(255,255,255,.08);border-radius:30px;overflow:hidden;box-shadow:0 30px 100px #000}}
