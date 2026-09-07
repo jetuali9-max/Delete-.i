@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07070c">
+  <title>Learning Code — Entry</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="entry-screen" id="entryScreen">
+    <div class="language-row" aria-label="Languages">
+      <span>HTML</span>
+      <span>JAVA</span>
+      <span>CSS</span>
+      <span>PYTHON</span>
+    </div>
+
+    <div class="rgb-title">Smooth RGB animated text</div>
+
+    <section class="hero">
+      <div class="code-icon">&lt;/&gt;</div>
+      <h1>Learning Code</h1>
+      <p>Start Your Coding Journey</p>
+    </section>
+
+    <form class="entry-card" id="entryForm" novalidate>
+      <label for="codeInput">Enter the code</label>
+
+      <div class="input-wrap" id="inputWrap">
+        <input
+          id="codeInput"
+          type="text"
+          autocomplete="off"
+          autocapitalize="characters"
+          spellcheck="false"
+          placeholder="Enter code"
+          aria-describedby="status"
+        >
+      </div>
+
+      <button type="submit" id="enterBtn">
+        <span>ENTER</span>
+        <span class="arrow">→</span>
+      </button>
+
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+    </form>
+  </main>
+
+  <main class="success-screen" id="successScreen" aria-hidden="true">
+    <div class="success-icon">✓</div>
+    <h2>Welcome, SANJID</h2>
+    <p>Your coding journey starts now.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
